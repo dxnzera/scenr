@@ -90,8 +90,15 @@ export interface Movie {
 ```
 
 ---
+## Licença | License
 
-## Contato
+Este projeto é distribuído sob a licença **MIT**.
+This project is licensed under the **MIT License**.
 
-* Desenvolvedor: Daniel Mendes
-* GitHub: [https://github.com/dxis](https://github.com/dxis)
+---
+
+### Autor | Author
+
+**Daniel Mendes**
+📧 contato: [dxnzera@gmail.com](mailto:dxnzera@gmail.com)
+📍 Brasil | Brazil
