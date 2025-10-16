@@ -1,0 +1,34 @@
+export interface Movie {
+  id: string;
+  primaryTitle: string;
+  originalTitle?: string;
+  description?: string;
+  primaryImage?: string | { url?: string };
+  averageRating?: number;
+  numVotes?: number;
+  metascore?: number;
+  releaseDate?: string;
+  startYear?: string;
+  runtimeMinutes?: number;
+  contentRating?: string;
+  isAdult?: boolean;
+  type?: 'tv' | 'movie';
+  runtime?: string;
+  genres?: string[];
+  countriesOfOrigin?: string[];
+  spokenLanguages?: string[];
+  filmingLocations?: string[];
+  interests?: string[];
+  language?: string | string[];
+  countries?: string[];
+  country?: string;
+  company?: string;
+  locations?: string[];
+  socialLinks?: { site: string; url: string }[];
+  productionCompanies?: { name: string }[];
+  budget?: number | string;
+  grossWorldwide?: number | string;
+  trailer?: { url?: string };
+  externalLinks?: { url: string; site: string }[];
+  url?: string;
+}
