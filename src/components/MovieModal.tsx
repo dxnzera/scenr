@@ -24,23 +24,21 @@ export default function MovieModal({ movie, setOpen }: MovieModalProps) {
 
   const isHorizontal = useMemo(() => {
     if (!imageUrl) return false;
-    return imageUrl.includes('landscape') || imageUrl.includes('banner') || imageUrl.includes('backdrop');
+    return (
+      imageUrl.includes('landscape') ||
+      imageUrl.includes('banner') ||
+      imageUrl.includes('backdrop')
+    );
   }, [imageUrl]);
 
   const year = movie.releaseDate ? movie.releaseDate.slice(0, 4) : '';
-
-  const formatCurrency = (value?: number | string | null) => {
-    if (typeof value === 'number') return `$${value.toLocaleString()}`;
-    if (typeof value === 'string' && !isNaN(Number(value))) return `$${Number(value).toLocaleString()}`;
-    return 'N/A';
-  };
 
   const InfoLine = ({ items }: { items: string[] }) => (
     <div className="flex flex-wrap items-center text-sm text-[var(--color-primary)] gap-2 mb-2">
       {items.map((text, idx) => (
         <span key={idx}>
           {text}
-          {idx < items.length - 1 && <span className="mx-1 text-gray-500">•</span>}
+          {idx < items.length - 1 && <span className="mx-2 text-gray-500">•</span>}
         </span>
       ))}
     </div>
@@ -72,15 +70,15 @@ export default function MovieModal({ movie, setOpen }: MovieModalProps) {
       >
         {/* Layout com imagem de fundo (horizontal) */}
         {isHorizontal && imageUrl ? (
-          <div className="relative w-full h-full">
+          <div className="relative w-full h-full rounded-md overflow-hidden">
             <Image
               src={imageUrl}
               alt={movie.primaryTitle}
               fill
-              className="object-cover"
+              className="object-cover rounded-md"
               unoptimized
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent rounded-md" />
 
             <div className="absolute bottom-10 left-10 right-10 text-color-text">
               <p className="text-xs uppercase font-semibold text-[var(--color-primary)] mb-2">
@@ -107,29 +105,33 @@ export default function MovieModal({ movie, setOpen }: MovieModalProps) {
                 </p>
               )}
 
-              <InfoLine
-                items={[
-                  year,
-                  movie.runtime || '—',
-                  '4K',
-                  'Dolby Vision',
-                  'Dolby Atmos',
-                  'CC',
-                  'AD',
-                ]}
-              />
-
-              {movie.averageRating && (
-                <div className="flex items-center gap-2 mb-4">
-                  <Star size={16} className="fill-yellow-500 text-yellow-400" />
-                  <p className="text-sm text-[var(--color-primary)]">{movie.averageRating}</p>
-                </div>
-              )}
+              {/* Linha de tecnologias com rating no início */}
+              <div className="flex flex-wrap items-center text-xs text-[var(--color-primary)] gap-2 mb-4">
+                {movie.averageRating && (
+                  <span className="flex items-center gap-1 border border-gray-500/40 rounded-md px-2 py-0.5 leading-tight">
+                    <Star size={14} className="fill-yellow-500 text-yellow-400" />
+                    <span>{movie.averageRating}</span>
+                  </span>
+                )}
+                <span className="border border-gray-500/40 rounded-md px-2 py-0.5 leading-tight">4K</span>
+                <span className="border border-gray-500/40 rounded-md px-2 py-0.5 leading-tight">
+                  Dolby Vision
+                </span>
+                <span className="border border-gray-500/40 rounded-md px-2 py-0.5 leading-tight">
+                  Dolby Atmos
+                </span>
+                <span className="border border-gray-500/40 rounded-md px-2 py-0.5 leading-tight">CC</span>
+                <span className="border border-gray-500/40 rounded-md px-2 py-0.5 leading-tight">AD</span>
+              </div>
 
               <div className="flex flex-wrap gap-3 mt-4">
                 {movie.trailer && (
                   <a
-                    href={typeof movie.trailer === 'string' ? movie.trailer : movie.trailer?.url}
+                    href={
+                      typeof movie.trailer === 'string'
+                        ? movie.trailer
+                        : movie.trailer?.url
+                    }
                     target="_blank"
                     rel="noopener noreferrer"
                     className="bg-white text-black font-semibold rounded-full px-6 py-3 text-sm hover:bg-gray-100 transition"
@@ -155,16 +157,16 @@ export default function MovieModal({ movie, setOpen }: MovieModalProps) {
           /* Layout vertical (imagem à esquerda) */
           <>
             {imageUrl && (
-              <div className="flex-shrink-0 md:w-1/3 w-full relative">
+              <div className="flex-shrink-0 md:w-1/3 w-full relative rounded-md overflow-hidden">
                 <Image
                   src={imageUrl}
                   alt={movie.primaryTitle}
                   width={400}
                   height={600}
-                  className="object-cover h-full w-full"
+                  className="object-cover h-full w-full rounded-md"
                   unoptimized
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent rounded-md" />
               </div>
             )}
 
@@ -172,12 +174,6 @@ export default function MovieModal({ movie, setOpen }: MovieModalProps) {
               <h2 className="text-4xl font-magseva font-bold mb-3">
                 {movie.primaryTitle}
               </h2>
-              {movie.averageRating && (
-                <div className="flex items-center gap-2 mb-4">
-                  <Star size={16} className="fill-purple-400 text-purple-300" />
-                  <p className="text-sm text-bold text-[var(--color-primary)]">{movie.averageRating} /10</p>
-                </div>
-              )}
 
               {movie.genres && movie.genres.length > 0 && (
                 <InfoLine
@@ -188,11 +184,25 @@ export default function MovieModal({ movie, setOpen }: MovieModalProps) {
                   ]}
                 />
               )}
-              
 
-              <TechLine
-                techs={['4K', 'Dolby Vision', 'Dolby Atmos', 'CC', 'AD']}
-              />
+              {/* Tech line com rating no início */}
+              <div className="flex flex-wrap items-center text-xs text-[var(--color-primary)] gap-2 mb-4">
+                {movie.averageRating && (
+                  <span className="flex items-center gap-1 border border-gray-500/40 rounded-md px-2 py-0.5 leading-tight">
+                    <Star size={14} className="fill-purple-400 text-purple-300" />
+                    <span>{movie.averageRating}</span>
+                  </span>
+                )}
+                <span className="border border-gray-500/40 rounded-md px-2 py-0.5 leading-tight">4K</span>
+                <span className="border border-gray-500/40 rounded-md px-2 py-0.5 leading-tight">
+                  Dolby Vision
+                </span>
+                <span className="border border-gray-500/40 rounded-md px-2 py-0.5 leading-tight">
+                  Dolby Atmos
+                </span>
+                <span className="border border-gray-500/40 rounded-md px-2 py-0.5 leading-tight">CC</span>
+                <span className="border border-gray-500/40 rounded-md px-2 py-0.5 leading-tight">AD</span>
+              </div>
 
               {movie.description && (
                 <p className="text-sm text-[var(--color-primary)] leading-relaxed mb-4">
@@ -203,7 +213,11 @@ export default function MovieModal({ movie, setOpen }: MovieModalProps) {
               <div className="flex flex-wrap gap-3 mt-auto">
                 {movie.trailer && (
                   <a
-                    href={typeof movie.trailer === 'string' ? movie.trailer : movie.trailer?.url}
+                    href={
+                      typeof movie.trailer === 'string'
+                        ? movie.trailer
+                        : movie.trailer?.url
+                    }
                     target="_blank"
                     rel="noopener noreferrer"
                     className="bg-white text-black font-semibold rounded-full px-6 py-3 text-sm hover:bg-gray-100 transition"
