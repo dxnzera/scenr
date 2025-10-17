@@ -7,7 +7,7 @@ export async function GET() {
       {
         method: 'GET',
         headers: {
-          'x-rapidapi-key': process.env.RAPIDAPI_KEY || '8ad153253bmsh90da055a0cf4e79p15be8ajsn0d98656ff7cb',
+          'x-rapidapi-key': process.env.RAPIDAPI_KEY || 'a805010bfbmshf8009517592661ap155849jsnec47ef936a96',
           'x-rapidapi-host': 'imdb236.p.rapidapi.com',
         },
         cache: 'no-store',

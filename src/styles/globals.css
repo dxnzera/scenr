@@ -10,7 +10,7 @@
   --radius: 0.625rem;
 
   /* Base colors */
-  --background: #ffffff;
+  --background: #bc9bda;
   --foreground: #252525;
 
   /* Card / Surfaces */
@@ -28,7 +28,7 @@
   /* Muted & Accent */
   --muted: #f4f4f4;
   --muted-foreground: #515151;
-  --accent: #f4f4f4;
+  --accent: #bc9bda;
   --accent-foreground: #222222;
 
   /* Status */
@@ -79,14 +79,20 @@
 
 .dark {
     --color-text: #ffffff;
-  --color-primary: #7847ff;
-  --color-secondary: #7847ff;
+    --color-primary: #7847ff;
+    --color-secondary: #7847ff;
     --color-background: linear-gradient(150deg, #2b0563, #05010c);
     --color-card: rgba(0, 0, 0, 0.2);
     --color-highlight: #7847ff;
     --muted-foreground: #ffffff;
     --color-shadow: #bc9bda;
     --color-shadow-rgb: 188 155 218;
+}
+
+/* ===== Custom Background Utilities ===== */
+.bg-color-background {
+  background: var(--color-background);
+  border-radius: 12px;
 }
 
 /* Base styles */
@@ -114,6 +120,27 @@ body {
 
 .card:hover {
   transform: scale(1.05);
+  box-shadow:
+    var(--card-shadow-base-hover),
+    var(--card-shadow-light-hover),
+    var(--card-shadow-dark-hover);
+}
+
+/* Card glass effect automático */
+.cardx {
+  backdrop-filter: blur(12px);
+  border-radius: 12px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  /* Usa variáveis CSS que mudam conforme o tema */
+  background: var(--color-card);
+  box-shadow:
+    var(--card-shadow-base),
+    var(--card-shadow-light),
+    var(--card-shadow-dark);
+}
+
+.cardx:hover {
   box-shadow:
     var(--card-shadow-base-hover),
     var(--card-shadow-light-hover),
@@ -214,7 +241,7 @@ body {
 
 /* Dark mode override */
 .dark {
-  --background: #1c1c1c;
+  --background: #2b0563;
   --foreground: #f9f9f9;
   --card: #242424;
   --card-foreground: #fafafa;
@@ -232,6 +259,7 @@ body {
   --border: rgba(255, 255, 255, 0.1);
   --input: rgba(255, 255, 255, 0.15);
   --ring: #8a8a8a;
+  --accent: #7847ff;
 
   --chart-1: #7563ff;
   --chart-2: #54c2a9;

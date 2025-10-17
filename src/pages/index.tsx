@@ -1,6 +1,8 @@
+
 import { useEffect, useState } from 'react'
 import { searchTmdb } from '@/lib/rapidApiClient'
 import Header from '@/components/Header'
+import MovieModal from '@/components/MovieModal'
 import MovieList from '@/components/movieList'
 
 interface Category {
@@ -18,6 +20,7 @@ const defaultCategories = [
 export default function Home() {
   const [categories, setCategories] = useState<Category[]>([])
   const [loading, setLoading] = useState(false)
+  const [selectedMovie, setSelectedMovie] = useState<any | null>(null)
 
   useEffect(() => {
     loadCategories()
@@ -48,7 +51,7 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-[var(--color-background)] text-[var(--color-text)]">
-      <Header/>
+      <Header onMovieSelect={setSelectedMovie} />
       <div className="p-6">
         {loading && <p className="text-center text-lg animate-pulse mt-8">Carregando...</p>}
         <h2 className="text-2xl font-magseva p-4">Most Popular Movies</h2>
@@ -56,6 +59,11 @@ export default function Home() {
         <h2 className="text-2xl font-magseva p-4">Most Popular TV Shows</h2>
         <MovieList type="tv" />
       </div>
+      {selectedMovie && (
+        <MovieModal movie={selectedMovie} setOpen={(open) => {
+          if (!open) setSelectedMovie(null)
+        }} />
+      )}
     </main>
   )
 }

@@ -189,8 +189,7 @@ export default function MovieModal({ movie, setOpen }: MovieModalProps) {
               <div className="flex flex-wrap items-center text-xs text-[var(--color-primary)] gap-2 mb-4">
                 {movie.averageRating && (
                   <span className="flex items-center gap-1 border border-gray-500/40 rounded-md px-2 py-0.5 leading-tight">
-                    <Star size={14} className="fill-purple-400 text-purple-300" />
-                    <span>{movie.averageRating}</span>
+                    <span>{movie.averageRating} / 10</span>
                   </span>
                 )}
                 <span className="border border-gray-500/40 rounded-md px-2 py-0.5 leading-tight">4K</span>
