@@ -58,41 +58,50 @@
   --color-text: #ffffff;
   --color-primary: #7847ff;
   --color-secondary: #7847ff;
-  --color-secondary: #7847ff;
   --color-background: linear-gradient(60deg, #ffffff, #efecff);
   --color-card: rgba(255, 255, 255, 0.05);
   --color-highlight: #7847ff;
 }
 
-/*Theme */
+/* Theme */
 :root {
-    --color-text: #000000;
-    --color-primary: #292929;
-    --color-secondary: #7847ff;
-    --color-background: linear-gradient(150deg, #ffffff, #bc9bda);
-    --color-card: rgba(0, 0, 0, 0.2);
-    --color-highlight: #7847ff;
-    --muted-foreground: #2b0563;
-    --color-shadow: #2b0563;
-    --color-shadow-rgb: 43 5 99;    
+  --color-text: #000000;
+  --color-primary: #292929;
+  --color-secondary: #7847ff;
+  --color-background: linear-gradient(150deg, #ffffff, #bc9bda);
+  --color-card: rgba(0, 0, 0, 0.2);
+  --color-highlight: #7847ff;
+  --muted-foreground: #2b0563;
+  --color-shadow: #2b0563;
+  --color-shadow-rgb: 43 5 99;
 }
 
 .dark {
-    --color-text: #ffffff;
-    --color-primary: #7847ff;
-    --color-secondary: #7847ff;
-    --color-background: linear-gradient(150deg, #2b0563, #05010c);
-    --color-card: rgba(0, 0, 0, 0.2);
-    --color-highlight: #7847ff;
-    --muted-foreground: #ffffff;
-    --color-shadow: #bc9bda;
-    --color-shadow-rgb: 188 155 218;
+  --color-text: #ffffff;
+  --color-primary: #7847ff;
+  --color-secondary: #7847ff;
+  --color-background: linear-gradient(150deg, #2b0563, #05010c);
+  --color-card: rgba(0, 0, 0, 0.2);
+  --color-highlight: #7847ff;
+  --muted-foreground: #ffffff;
+  --color-shadow: #bc9bda;
+  --color-shadow-rgb: 188 155 218;
 }
 
 /* ===== Custom Background Utilities ===== */
 .bg-color-background {
   background: var(--color-background);
   border-radius: 12px;
+}
+
+/* ===== Ocultar scrollbar em todos os navegadores ===== */
+.scrollbar-hide {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE e Edge */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Chrome, Safari e Opera */
 }
 
 /* Base styles */
@@ -154,14 +163,18 @@ body {
   /* Sombras externas gerais */
   --card-shadow-base: 0 4px 30px rgba(0, 0, 0, 0.05);
   /* Cantos claros (branco) */
-  --card-shadow-light: inset 2px 2px 3px rgba(255, 255, 255, 1), inset -2px -2px 8px rgba(255, 255, 255, 1);
+  --card-shadow-light: inset 2px 2px 3px rgba(255, 255, 255, 1),
+    inset -2px -2px 8px rgba(255, 255, 255, 1);
   /* Cantos escuros (preto) */
-  --card-shadow-dark: inset -1px 1px 3px rgba(0, 0, 0, 0.5), inset 1px -1px 8px rgba(0, 0, 0, 0.2);
+  --card-shadow-dark: inset -1px 1px 3px rgba(0, 0, 0, 0.5),
+    inset 1px -1px 8px rgba(0, 0, 0, 0.2);
 
   /* Hover */
   --card-shadow-base-hover: 0 8px 40px rgba(0, 0, 0, 0.1);
-  --card-shadow-light-hover: inset 2px 2px 4px rgba(255, 255, 255, 1), inset -2px -2px 12px rgba(255, 255, 255, 1);
-  --card-shadow-dark-hover: inset -1px 1px 3px rgba(0, 0, 0, 0.5), inset 1px -1px 8px rgba(0, 0, 0, 0.35);
+  --card-shadow-light-hover: inset 2px 2px 4px rgba(255, 255, 255, 1),
+    inset -2px -2px 12px rgba(255, 255, 255, 1);
+  --card-shadow-dark-hover: inset -1px 1px 3px rgba(0, 0, 0, 0.5),
+    inset 1px -1px 8px rgba(0, 0, 0, 0.35);
 }
 
 /* === Dark Theme === */
@@ -171,16 +184,19 @@ body {
   /* Sombras externas gerais */
   --card-shadow-base: 0 4px 30px rgba(0, 0, 0, 0.05);
   /* Cantos claros (branco) */
-  --card-shadow-light: inset 2px 2px 3px rgba(255, 255, 255, 0.7), inset -2px -2px 8px rgba(255, 255, 255, 0.35);
+  --card-shadow-light: inset 2px 2px 3px rgba(255, 255, 255, 0.7),
+    inset -2px -2px 8px rgba(255, 255, 255, 0.35);
   /* Cantos escuros (preto) */
-  --card-shadow-dark: inset -1px 1px 3px rgba(0, 0, 0, 0.2), inset 1px -1px 8px rgba(0, 0, 0, 0.1);
+  --card-shadow-dark: inset -1px 1px 3px rgba(0, 0, 0, 0.2),
+    inset 1px -1px 8px rgba(0, 0, 0, 0.1);
 
   /* Hover */
   --card-shadow-base-hover: 0 8px 40px rgba(0, 0, 0, 0.1);
-  --card-shadow-light-hover: inset 2px 2px 4px rgba(255, 255, 255, 0.7), inset -2px -2px 12px rgba(255, 255, 255, 0.5);
-  --card-shadow-dark-hover: inset -1px 1px 3px rgba(0, 0, 0, 0.5), inset 1px -1px 8px rgba(0, 0, 0, 0.35);
+  --card-shadow-light-hover: inset 2px 2px 4px rgba(255, 255, 255, 0.7),
+    inset -2px -2px 12px rgba(255, 255, 255, 0.5);
+  --card-shadow-dark-hover: inset -1px 1px 3px rgba(0, 0, 0, 0.5),
+    inset 1px -1px 8px rgba(0, 0, 0, 0.35);
 }
-
 
 /* Buttons and Highlights */
 .button,
@@ -284,6 +300,7 @@ body {
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
