@@ -115,7 +115,6 @@ export default function Header({ onMovieSelect }: HeaderProps) {
 
   return (
   <header className="flex items-center justify-between p-4 sticky top-0 z-50 bg-[var(--color-background)] shadow-lg shadow-purple-500/10 backdrop-blur-md">
-      {/* Logo */}
       <div className="flex flex-col justify-center items-center relative">
         <Image
           src="/images/LogotipoLight.png"
@@ -133,7 +132,6 @@ export default function Header({ onMovieSelect }: HeaderProps) {
         />
       </div>
 
-      {/* Search */}
       <div className="flex-1 max-w-xl mx-4 relative">
         <form onSubmit={handleSubmit} autoComplete="off">
           <Input
@@ -168,9 +166,6 @@ export default function Header({ onMovieSelect }: HeaderProps) {
         )}
       </div>
 
-  {/* MovieModal removido do Header, agora será controlado pelo componente pai */}
-
-      {/* User */}
       <div className="flex items-center gap-4">
         <ThemeToggle />
         <User />

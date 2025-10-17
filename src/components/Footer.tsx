@@ -1,17 +1,11 @@
 'use client';
 
 import Image from 'next/image';
-import { useState } from 'react';
-import { Input } from '@/components/ui/input';
-import ThemeToggle from './ThemeToggle';
-import User from '@/components/User';
 
 export default function Footer() {
-  const [searchQuery, setSearchQuery] = useState('');
 
   return (
-    <header className="flex items-center justify-between p-4 sticky top-0 z-50 bg-[var(--color-background)] shadow-lg shadow-purple-500/10 backdrop-blur-md">
-      {/* Logo */}
+    <header className="flex items-center justify-center p-4 sticky top-0 z-50 bg-[var(--color-background)] shadow-lg shadow-purple-500/10 backdrop-blur-md">
       <div className="flex flex-col justify-center items-center relative">
         <Image
           src="/images/Logotipo Roxa.png"

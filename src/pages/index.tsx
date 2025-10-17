@@ -4,6 +4,7 @@ import { searchTmdb } from '@/lib/rapidApiClient'
 import Header from '@/components/Header'
 import MovieModal from '@/components/MovieModal'
 import MovieList from '@/components/movieList'
+import Footer from '@/components/Footer'
 
 interface Category {
   title: string
@@ -64,6 +65,7 @@ export default function Home() {
           if (!open) setSelectedMovie(null)
         }} />
       )}
+      <Footer />
     </main>
   )
 }

@@ -68,7 +68,7 @@ export default function MovieModal({ movie, setOpen }: MovieModalProps) {
         }`}
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Layout com imagem de fundo (horizontal) */}
+        
         {isHorizontal && imageUrl ? (
           <div className="relative w-full h-full rounded-md overflow-hidden">
             <Image
@@ -105,7 +105,7 @@ export default function MovieModal({ movie, setOpen }: MovieModalProps) {
                 </p>
               )}
 
-              {/* Linha de tecnologias com rating no início */}
+              
               <div className="flex flex-wrap items-center text-xs text-[var(--color-primary)] gap-2 mb-4">
                 {movie.averageRating && (
                   <span className="flex items-center gap-1 border border-gray-500/40 rounded-md px-2 py-0.5 leading-tight">
@@ -185,7 +185,7 @@ export default function MovieModal({ movie, setOpen }: MovieModalProps) {
                 />
               )}
 
-              {/* Tech line com rating no início */}
+              
               <div className="flex flex-wrap items-center text-xs text-[var(--color-primary)] gap-2 mb-4">
                 {movie.averageRating && (
                   <span className="flex items-center gap-1 border border-gray-500/40 rounded-md px-2 py-0.5 leading-tight">
