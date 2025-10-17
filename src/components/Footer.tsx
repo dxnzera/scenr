@@ -8,7 +8,7 @@ export default function Footer() {
     <header className="flex items-center justify-center p-4 sticky top-0 z-50 bg-[var(--color-background)] shadow-lg shadow-purple-500/10 backdrop-blur-md">
       <div className="flex flex-col justify-center items-center relative">
         <Image
-          src="/images/Logotipo Roxa.png"
+          src="/images/LogotipoLight.png"
           alt="Logo"
           width={120}
           height={40}
