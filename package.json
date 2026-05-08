@@ -2,13 +2,11 @@
   "name": "scenr",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://dxnzera.github.io/scenr/",
   "scripts": {
-    "dev": "next dev --turbopack",
-    "build": "next build --turbopack",
+    "dev": "next dev",
+    "build": "next build",
     "start": "next start",
-    "lint": "eslint",
-    "deploy": "gh-pages -d dist"
+    "lint": "eslint"
   },
   "dependencies": {
     "@radix-ui/react-avatar": "^1.1.10",

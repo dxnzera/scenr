@@ -15,7 +15,7 @@ export default function MoviePage({ data }: Props) {
         <h1 className="text-3xl font-bold mb-4">{data.title || data.fullTitle}</h1>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="col-span-1">
-            <MovieCard id={data.id} title={data.title || data.fullTitle} poster={data.image && data.image.url} overview={data.plot && data.plot.plotText} />
+            <MovieCard movie={data} onClick={() => {}} />
           </div>
           <div className="md:col-span-2">
             <h2 className="text-xl font-semibold">Notas</h2>
